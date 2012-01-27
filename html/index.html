@@ -34,22 +34,22 @@
     
     <h2>Status</h2>
     <p>A count of places, locations, and names</p>
-    <p><a href="http://pleiades.stoa.org/api/status">http://pleiades.stoa.org/api/status</a></p>
+    <p><a href="http://api.pleiades.stoa.org/status">http://api.pleiades.stoa.org/status</a></p>
 
     <h3>Access Example</h3>
     <pre>
-$ curl -v http://pleiades.stoa.org/api/status
+$ curl -v http://api.pleiades.stoa.org/status
 > GET /api/status HTTP/1.1
 > Host: pleiades.stoa.org
 > Accept: */*
 > 
 < HTTP/1.1 200 OK
-< Date: Fri, 20 Jan 2012 21:07:51 GMT
+< Date: Fri, 27 Jan 2012 20:55:02 GMT
 < Content-Type: application/json
-< Cache-Control: max-age=3600
+< Cache-Control: max-age=900
 < Access-Control-Allow-Origin: *
-< 
-{"num_places": 34082, "num_locations": 35213, "num_names": 26646}
+<
+{"num_places": 34090, "num_locations": 35220, "num_names": 26644}
 </pre>
 
     <h3>Data Items</h3>
