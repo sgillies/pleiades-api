@@ -31,9 +31,15 @@
     <h1>Pleiades Places API</h1>
     <p>Chunks of read-only data we use in various applications are available in
     JSON via HTTP.</p>
-    
+
+    <ul>
+      <li><a href="#status">Status</a></li>
+      <li><a href="#place">Place</a></li>
+    </ul>
+
+    <a name="status"></a>
     <h2>Status</h2>
-    <p>A count of places, locations, and names</p>
+    <p>A count of places, locations, and names.</p>
     <p><a href="http://api.pleiades.stoa.org/status">http://api.pleiades.stoa.org/status</a></p>
 
     <h3>Access Example</h3>
@@ -60,6 +66,47 @@ $ curl -v http://api.pleiades.stoa.org/status
     <dt>num_names</dt>
     <dd>The current number of published names (int)</dd>
 
+    <a name="place"></a>
+    <h2>Place</h2>
+    <p>Data about a single ancient place represented as a GeoJSON feature 
+    collection.</p>
+    <p>URI template: http://pleiades.stoa.org/places/{pid}/json</p>
+
+    <h3>Access Example</h3>
+    <pre>
+$ curl -v http://pleiades.stoa.org/places/423025/json
+> GET /places/423025/json HTTP/1.1
+> Host: pleiades.stoa.org
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Date: Thu, 09 Feb 2012 18:10:16 GMT
+< Content-Type: application/json
+< Content-Length: 1117
+< 
+{"connectsWith": ["423080"], "recent_changes": [{"modified": "2012-02-04T23:39:53Z", "principal": "sgillies"}, {"modified": "2011-02-23T17:36:26Z", "principal": "thomase"}], "description": "The capital of the Roman Republic and Empire", "title": "Roma", "reprPoint": [12.486136999999999, 41.891775000000003], "features": [{"geometry": {"type": "Point", "bbox": [12.4862, 41.8917, 12.4862, 41.8917], "coordinates": [12.4862, 41.8917]}, "type": "Feature", "properties": {"link": "http://pleiades.stoa.org/places/423025/temple-of-vesta", "description": "", "title": "Temple of Vesta"}, "id": "temple-of-vesta"}, {"geometry": {"type": "Point", "bbox": [12.486136999999999, 41.891775000000003, 12.486136999999999, 41.891775000000003], "coordinates": [12.486136999999999, 41.891775000000003]}, "type": "Feature", "properties": {"link": "http://pleiades.stoa.org/places/423025/darmc-location-30635", "description": "", "title": "DARMC location 30635"}, "id": "darmc-location-30635"}], "names": ["Roma", "Rome"], "type": "FeatureCollection", "id": "423025", "bbox": [12.486136999999999, 41.8917, 12.4862, 41.891775000000003]}
+    </pre>
+
+    <h3>Data Items</h3>
+    <dt>id</dt>
+    <dd>The pid of this place (string)</dd>
+    <dt>connectsWith</dt>
+    <dd>The pid of every geographically connected place (list)</dd>
+    <dt>recent_changes</dt>
+    <dd>The timestamp and principal of the one or two most recent changes to this
+    place's data (list)</dd>
+    <dt>features</dt>
+    <dd>Locations associated with this place, as in GeoJSON (list)</dd>
+    <dt>description</dt>
+    <dd>Brief description suitable for UI element label (string)</dd>
+    <dt>title</dt>
+    <dd>Not necessarily an ancient name (string)</dd>
+    <dt>reprPoint</dt>
+    <dd>A representative longitude (float), latitude (float) point (list)</dd>
+    <dt>bbox</dt>
+    <dd>Longitude and latitude bounds, [bottom, left, top, right] (list)</dd>
+    <dt>names</dt>
+    <dd>English transliterations of appellations for the place (list)</dd>
     </div>
     
     <footer>
@@ -79,7 +126,7 @@ $ curl -v http://api.pleiades.stoa.org/status
 
 
   <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    window._gaq = [['_setAccount','UA-3702316-7'],['_trackPageview'],['_trackPageLoadTime']];
     Modernizr.load({
       load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
     });
