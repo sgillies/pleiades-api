@@ -2,6 +2,7 @@ Pleiades Place API
 ==================
 
 Home: http://api.pleiades.stoa.org
+Discussion: https://groups.google.com/a/nyu.edu/group/pleiades-community-group
 
 In collaboration with developers using Pleiades place data, we are developing
 new HTTP + JSON services such as
